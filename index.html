@@ -15,26 +15,72 @@
     <script type="text/babel">
         const { useState } = React;
 
-        // Icon components
-        const ShoppingCart = () => (
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                <circle cx="9" cy="21" r="1"></circle>
-                <circle cx="20" cy="21" r="1"></circle>
-                <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+        // Icons
+        const ShoppingCart = ({ size = 20 }) => (
+            <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/>
+                <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/>
             </svg>
         );
 
-        const User = () => (
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
-                <circle cx="12" cy="7" r="4"></circle>
+        const Home = ({ size = 20 }) => (
+            <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/>
             </svg>
         );
 
-        const Lock = () => (
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
-                <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+        const Package = ({ size = 20 }) => (
+            <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
+            </svg>
+        );
+
+        const FileText = ({ size = 20 }) => (
+            <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/>
+            </svg>
+        );
+
+        const Users = ({ size = 20 }) => (
+            <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/>
+                <path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+            </svg>
+        );
+
+        const BarChart = ({ size = 20 }) => (
+            <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <line x1="12" y1="20" x2="12" y2="10"/><line x1="18" y1="20" x2="18" y2="4"/><line x1="6" y1="20" x2="6" y2="16"/>
+            </svg>
+        );
+
+        const Menu = ({ size = 20 }) => (
+            <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/>
+            </svg>
+        );
+
+        const Bell = ({ size = 20 }) => (
+            <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/>
+            </svg>
+        );
+
+        const User = ({ size = 20 }) => (
+            <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/>
+            </svg>
+        );
+
+        const TrendingUp = ({ size = 20 }) => (
+            <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/>
+            </svg>
+        );
+
+        const DollarSign = ({ size = 20 }) => (
+            <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
             </svg>
         );
 
@@ -44,16 +90,17 @@
             const [password, setPassword] = useState('');
             const [error, setError] = useState('');
             const [currentUser, setCurrentUser] = useState('');
+            const [sidebarOpen, setSidebarOpen] = useState(true);
+            const [activeMenu, setActiveMenu] = useState('dashboard');
 
             const handleLogin = () => {
                 setError('');
-
                 if (username === 'admin' && password === '123456') {
                     setIsLoggedIn(true);
-                    setCurrentUser(username);
+                    setCurrentUser('Admin');
                 } else if (username === 'nhanvien' && password === '123456') {
                     setIsLoggedIn(true);
-                    setCurrentUser(username);
+                    setCurrentUser('Nhân viên');
                 } else {
                     setError('Tên đăng nhập hoặc mật khẩu không đúng!');
                 }
@@ -67,150 +114,340 @@
                 setError('');
             };
 
-            const handleKeyPress = (e) => {
-                if (e.key === 'Enter') {
-                    handleLogin();
-                }
-            };
-
             if (isLoggedIn) {
                 return (
-                    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 p-8">
-                        <div className="max-w-4xl mx-auto">
-                            <div className="bg-white rounded-lg shadow-md p-6 mb-6">
-                                <div className="flex justify-between items-center">
-                                    <div className="flex items-center gap-3">
-                                        <div className="w-8 h-8 text-indigo-600">
-                                            <ShoppingCart />
-                                        </div>
-                                        <div>
-                                            <h1 className="text-2xl font-bold text-gray-800">Quản lý Bán hàng</h1>
-                                            <p className="text-sm text-gray-600">Xin chào, <span className="font-semibold">{currentUser}</span>!</p>
-                                        </div>
+                    <div className="flex h-screen bg-gray-100">
+                        {/* Sidebar */}
+                        <div className={`${sidebarOpen ? 'w-64' : 'w-20'} bg-white border-r border-gray-200 transition-all duration-300 flex flex-col`}>
+                            {/* Logo */}
+                            <div className="h-16 flex items-center justify-center border-b border-gray-200 bg-indigo-600">
+                                <ShoppingCart size={28} />
+                                {sidebarOpen && <span className="ml-3 text-white font-bold text-lg">QuanLyBH</span>}
+                            </div>
+
+                            {/* Menu Items */}
+                            <nav className="flex-1 overflow-y-auto py-4">
+                                <a onClick={() => setActiveMenu('dashboard')} className={`flex items-center px-4 py-3 mx-2 mb-1 rounded cursor-pointer ${activeMenu === 'dashboard' ? 'bg-indigo-50 text-indigo-600' : 'text-gray-700 hover:bg-gray-50'}`}>
+                                    <Home size={20} />
+                                    {sidebarOpen && <span className="ml-3 font-medium">Tổng quan</span>}
+                                </a>
+
+                                <a onClick={() => setActiveMenu('products')} className={`flex items-center px-4 py-3 mx-2 mb-1 rounded cursor-pointer ${activeMenu === 'products' ? 'bg-indigo-50 text-indigo-600' : 'text-gray-700 hover:bg-gray-50'}`}>
+                                    <Package size={20} />
+                                    {sidebarOpen && <span className="ml-3 font-medium">Sản phẩm</span>}
+                                    {sidebarOpen && <span className="ml-auto text-xs bg-yellow-100 text-yellow-700 px-2 py-1 rounded-full">Soon</span>}
+                                </a>
+
+                                <a onClick={() => setActiveMenu('orders')} className={`flex items-center px-4 py-3 mx-2 mb-1 rounded cursor-pointer ${activeMenu === 'orders' ? 'bg-indigo-50 text-indigo-600' : 'text-gray-700 hover:bg-gray-50'}`}>
+                                    <FileText size={20} />
+                                    {sidebarOpen && <span className="ml-3 font-medium">Đơn hàng</span>}
+                                    {sidebarOpen && <span className="ml-auto text-xs bg-yellow-100 text-yellow-700 px-2 py-1 rounded-full">Soon</span>}
+                                </a>
+
+                                <a onClick={() => setActiveMenu('customers')} className={`flex items-center px-4 py-3 mx-2 mb-1 rounded cursor-pointer ${activeMenu === 'customers' ? 'bg-indigo-50 text-indigo-600' : 'text-gray-700 hover:bg-gray-50'}`}>
+                                    <Users size={20} />
+                                    {sidebarOpen && <span className="ml-3 font-medium">Khách hàng</span>}
+                                    {sidebarOpen && <span className="ml-auto text-xs bg-yellow-100 text-yellow-700 px-2 py-1 rounded-full">Soon</span>}
+                                </a>
+
+                                <a onClick={() => setActiveMenu('reports')} className={`flex items-center px-4 py-3 mx-2 mb-1 rounded cursor-pointer ${activeMenu === 'reports' ? 'bg-indigo-50 text-indigo-600' : 'text-gray-700 hover:bg-gray-50'}`}>
+                                    <BarChart size={20} />
+                                    {sidebarOpen && <span className="ml-3 font-medium">Báo cáo</span>}
+                                    {sidebarOpen && <span className="ml-auto text-xs bg-yellow-100 text-yellow-700 px-2 py-1 rounded-full">Soon</span>}
+                                </a>
+                            </nav>
+
+                            {/* User Info */}
+                            <div className="border-t border-gray-200 p-4">
+                                <div className="flex items-center">
+                                    <div className="w-10 h-10 rounded-full bg-indigo-600 flex items-center justify-center text-white font-bold">
+                                        {currentUser[0]}
                                     </div>
-                                    <button
-                                        onClick={handleLogout}
-                                        className="px-4 py-2 bg-red-500 text-white rounded-lg hover:bg-red-600 transition-colors"
-                                    >
+                                    {sidebarOpen && (
+                                        <div className="ml-3 flex-1">
+                                            <div className="text-sm font-medium text-gray-900">{currentUser}</div>
+                                            <div className="text-xs text-gray-500">Online</div>
+                                        </div>
+                                    )}
+                                </div>
+                            </div>
+                        </div>
+
+                        {/* Main Content */}
+                        <div className="flex-1 flex flex-col overflow-hidden">
+                            {/* Header */}
+                            <header className="h-16 bg-white border-b border-gray-200 flex items-center justify-between px-6">
+                                <div className="flex items-center">
+                                    <button onClick={() => setSidebarOpen(!sidebarOpen)} className="text-gray-600 hover:text-gray-900 mr-4">
+                                        <Menu size={24} />
+                                    </button>
+                                    <h1 className="text-xl font-semibold text-gray-800">Tổng quan</h1>
+                                </div>
+
+                                <div className="flex items-center space-x-4">
+                                    <button className="relative text-gray-600 hover:text-gray-900">
+                                        <Bell size={22} />
+                                        <span className="absolute -top-1 -right-1 w-4 h-4 bg-red-500 rounded-full text-white text-xs flex items-center justify-center">3</span>
+                                    </button>
+                                    <button onClick={handleLogout} className="px-4 py-2 text-sm bg-red-500 text-white rounded hover:bg-red-600">
                                         Đăng xuất
                                     </button>
                                 </div>
-                            </div>
+                            </header>
 
-                            <div className="bg-white rounded-lg shadow-md p-8">
-                                <div className="text-center py-12">
-                                    <div className="mb-4 flex justify-center">
-                                        <div className="w-24 h-24 text-indigo-600">
-                                            <ShoppingCart />
+                            {/* Content Area */}
+                            <main className="flex-1 overflow-y-auto p-6">
+                                {/* Stats Cards */}
+                                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-6">
+                                    <div className="bg-white rounded-lg shadow p-6">
+                                        <div className="flex items-center justify-between mb-4">
+                                            <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center text-blue-600">
+                                                <DollarSign size={24} />
+                                            </div>
+                                            <span className="text-xs text-green-600 bg-green-50 px-2 py-1 rounded">+12%</span>
                                         </div>
+                                        <div className="text-2xl font-bold text-gray-900 mb-1">0 đ</div>
+                                        <div className="text-sm text-gray-600">Doanh thu hôm nay</div>
                                     </div>
-                                    <h2 className="text-3xl font-bold text-gray-800 mb-4">
-                                        Đăng nhập thành công! 🎉
-                                    </h2>
-                                    <p className="text-gray-600 mb-6">
-                                        Chào mừng bạn đến với hệ thống quản lý bán hàng.
-                                    </p>
-                                    <div className="bg-blue-50 border-l-4 border-blue-500 p-4 text-left max-w-md mx-auto">
-                                        <p className="text-sm text-gray-700">
-                                            <strong>Lưu ý:</strong> Các chức năng quản lý (sản phẩm, đơn hàng, khách hàng, báo cáo) sẽ được thêm vào trong các bước tiếp theo.
-                                        </p>
+
+                                    <div className="bg-white rounded-lg shadow p-6">
+                                        <div className="flex items-center justify-between mb-4">
+                                            <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center text-green-600">
+                                                <FileText size={24} />
+                                            </div>
+                                            <span className="text-xs text-green-600 bg-green-50 px-2 py-1 rounded">+5%</span>
+                                        </div>
+                                        <div className="text-2xl font-bold text-gray-900 mb-1">0</div>
+                                        <div className="text-sm text-gray-600">Đơn hàng mới</div>
+                                    </div>
+
+                                    <div className="bg-white rounded-lg shadow p-6">
+                                        <div className="flex items-center justify-between mb-4">
+                                            <div className="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center text-purple-600">
+                                                <Users size={24} />
+                                            </div>
+                                            <span className="text-xs text-green-600 bg-green-50 px-2 py-1 rounded">+8%</span>
+                                        </div>
+                                        <div className="text-2xl font-bold text-gray-900 mb-1">0</div>
+                                        <div className="text-sm text-gray-600">Khách hàng</div>
+                                    </div>
+
+                                    <div className="bg-white rounded-lg shadow p-6">
+                                        <div className="flex items-center justify-between mb-4">
+                                            <div className="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center text-orange-600">
+                                                <Package size={24} />
+                                            </div>
+                                            <span className="text-xs text-red-600 bg-red-50 px-2 py-1 rounded">-3%</span>
+                                        </div>
+                                        <div className="text-2xl font-bold text-gray-900 mb-1">0</div>
+                                        <div className="text-sm text-gray-600">Sản phẩm</div>
                                     </div>
                                 </div>
-                            </div>
+
+                                {/* Charts Row */}
+                                <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
+                                    <div className="bg-white rounded-lg shadow p-6">
+                                        <h3 className="text-lg font-semibold text-gray-900 mb-4">Doanh thu theo tháng</h3>
+                                        <div className="h-64 flex items-center justify-center bg-gray-50 rounded">
+                                            <div className="text-center text-gray-500">
+                                                <BarChart size={48} />
+                                                <p className="mt-2">Biểu đồ sẽ hiển thị ở đây</p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div className="bg-white rounded-lg shadow p-6">
+                                        <h3 className="text-lg font-semibold text-gray-900 mb-4">Đơn hàng gần đây</h3>
+                                        <div className="space-y-4">
+                                            <div className="flex items-center justify-between p-3 bg-gray-50 rounded">
+                                                <div className="flex items-center">
+                                                    <div className="w-10 h-10 bg-blue-100 rounded flex items-center justify-center text-blue-600 font-bold">
+                                                        #1
+                                                    </div>
+                                                    <div className="ml-3">
+                                                        <div className="text-sm font-medium text-gray-900">Chưa có đơn hàng</div>
+                                                        <div className="text-xs text-gray-500">Hãy tạo đơn hàng đầu tiên</div>
+                                                    </div>
+                                                </div>
+                                                <span className="text-sm font-semibold text-gray-900">0 đ</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                {/* Notification */}
+                                <div className="bg-blue-50 border-l-4 border-blue-500 p-6 rounded">
+                                    <div className="flex">
+                                        <div className="flex-shrink-0">
+                                            <svg className="h-6 w-6 text-blue-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                            </svg>
+                                        </div>
+                                        <div className="ml-3">
+                                            <h3 className="text-sm font-medium text-blue-800">Thông báo phát triển</h3>
+                                            <div className="mt-2 text-sm text-blue-700">
+                                                <p>Hệ thống đang trong giai đoạn phát triển. Các chức năng Sản phẩm, Đơn hàng, Khách hàng và Báo cáo sẽ được bổ sung trong các phiên bản tiếp theo.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </main>
                         </div>
                     </div>
                 );
             }
 
             return (
-                <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 flex items-center justify-center p-4">
-                    <div className="w-full max-w-md">
-                        <div className="text-center mb-8">
-                            <div className="flex justify-center mb-4">
-                                <div className="w-16 h-16 bg-indigo-600 rounded-full flex items-center justify-center">
-                                    <div className="w-10 h-10 text-white">
-                                        <ShoppingCart />
+                <div className="min-h-screen bg-white flex flex-col">
+                    {/* Logo */}
+                    <div className="p-8">
+                        <div className="flex items-center space-x-2">
+                            <ShoppingCart size={32} />
+                            <span className="text-2xl font-bold text-gray-900">QuanLyBH</span>
+                        </div>
+                    </div>
+
+                    {/* Login Form */}
+                    <div className="flex-1 flex items-center justify-center px-4 pb-16">
+                        <div className="w-full max-w-4xl">
+                            <div className="text-center mb-12">
+                                <h1 className="text-5xl font-bold text-gray-900 mb-4">Đăng nhập</h1>
+                                <p className="text-gray-600">
+                                    Chưa có tài khoản? <a href="#" className="text-blue-600 hover:underline">Đăng ký</a>
+                                </p>
+                            </div>
+
+                            <div className="grid md:grid-cols-2 gap-16">
+                                {/* Left side - Description */}
+                                <div className="space-y-6">
+                                    <h2 className="text-2xl font-bold text-gray-900 mb-6">Hệ thống quản lý bán hàng toàn diện</h2>
+                                    
+                                    <p className="text-gray-600 leading-relaxed">
+                                        QuanLyBH là giải pháp quản lý bán hàng hoàn hảo cho doanh nghiệp của bạn. 
+                                        Theo dõi sản phẩm, đơn hàng và khách hàng một cách dễ dàng.
+                                    </p>
+
+                                    <div className="space-y-4 pt-4">
+                                        <div className="flex items-start space-x-3">
+                                            <div className="w-6 h-6 rounded-full bg-blue-100 flex items-center justify-center flex-shrink-0 mt-1">
+                                                <svg className="w-4 h-4 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
+                                                </svg>
+                                            </div>
+                                            <div>
+                                                <h3 className="font-semibold text-gray-900 mb-1">Quản lý sản phẩm</h3>
+                                                <p className="text-sm text-gray-600">Thêm, sửa, xóa và theo dõi tồn kho một cách dễ dàng</p>
+                                            </div>
+                                        </div>
+
+                                        <div className="flex items-start space-x-3">
+                                            <div className="w-6 h-6 rounded-full bg-green-100 flex items-center justify-center flex-shrink-0 mt-1">
+                                                <svg className="w-4 h-4 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
+                                                </svg>
+                                            </div>
+                                            <div>
+                                                <h3 className="font-semibold text-gray-900 mb-1">Đơn hàng nhanh chóng</h3>
+                                                <p className="text-sm text-gray-600">Tạo và xử lý đơn hàng trong vài giây</p>
+                                            </div>
+                                        </div>
+
+                                        <div className="flex items-start space-x-3">
+                                            <div className="w-6 h-6 rounded-full bg-purple-100 flex items-center justify-center flex-shrink-0 mt-1">
+                                                <svg className="w-4 h-4 text-purple-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
+                                                </svg>
+                                            </div>
+                                            <div>
+                                                <h3 className="font-semibold text-gray-900 mb-1">Báo cáo chi tiết</h3>
+                                                <p className="text-sm text-gray-600">Thống kê doanh thu và hiệu suất kinh doanh</p>
+                                            </div>
+                                        </div>
+
+                                        <div className="flex items-start space-x-3">
+                                            <div className="w-6 h-6 rounded-full bg-orange-100 flex items-center justify-center flex-shrink-0 mt-1">
+                                                <svg className="w-4 h-4 text-orange-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
+                                                </svg>
+                                            </div>
+                                            <div>
+                                                <h3 className="font-semibold text-gray-900 mb-1">Quản lý khách hàng</h3>
+                                                <p className="text-sm text-gray-600">Lưu trữ thông tin và lịch sử mua hàng</p>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                            <h1 className="text-3xl font-bold text-gray-800 mb-2">
-                                Quản lý Bán hàng
-                            </h1>
-                            <p className="text-gray-600">Đăng nhập để tiếp tục</p>
-                        </div>
 
-                        <div className="bg-white rounded-lg shadow-xl p-8">
-                            <div>
-                                <div className="mb-6">
-                                    <label className="block text-sm font-semibold text-gray-700 mb-2">
-                                        Tên đăng nhập
-                                    </label>
+                                {/* Right side - Login Form */}
+                                <div className="space-y-8">
+                                    {/* Username Field */}
                                     <div className="relative">
-                                        <div className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400">
-                                            <User />
-                                        </div>
                                         <input
                                             type="text"
                                             value={username}
                                             onChange={(e) => setUsername(e.target.value)}
-                                            onKeyPress={handleKeyPress}
-                                            className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
-                                            placeholder="Nhập tên đăng nhập"
+                                            onKeyPress={(e) => e.key === 'Enter' && handleLogin()}
+                                            className="peer w-full px-0 py-3 border-0 border-b-2 border-gray-200 focus:outline-none focus:border-blue-600 bg-transparent text-base transition-colors"
+                                            placeholder=" "
                                         />
+                                        <label className="absolute left-0 top-3 text-gray-500 transition-all duration-200 pointer-events-none peer-focus:-top-5 peer-focus:text-sm peer-focus:text-blue-600 peer-[:not(:placeholder-shown)]:-top-5 peer-[:not(:placeholder-shown)]:text-sm peer-[:not(:placeholder-shown)]:text-gray-600">
+                                            Tên đăng nhập
+                                        </label>
                                     </div>
-                                </div>
 
-                                <div className="mb-6">
-                                    <label className="block text-sm font-semibold text-gray-700 mb-2">
-                                        Mật khẩu
-                                    </label>
+                                    {/* Password Field */}
                                     <div className="relative">
-                                        <div className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400">
-                                            <Lock />
-                                        </div>
                                         <input
                                             type="password"
                                             value={password}
                                             onChange={(e) => setPassword(e.target.value)}
-                                            onKeyPress={handleKeyPress}
-                                            className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
-                                            placeholder="Nhập mật khẩu"
+                                            onKeyPress={(e) => e.key === 'Enter' && handleLogin()}
+                                            className="peer w-full px-0 py-3 border-0 border-b-2 border-gray-200 focus:outline-none focus:border-blue-600 bg-transparent text-base transition-colors"
+                                            placeholder=" "
                                         />
+                                        <label className="absolute left-0 top-3 text-gray-500 transition-all duration-200 pointer-events-none peer-focus:-top-5 peer-focus:text-sm peer-focus:text-blue-600 peer-[:not(:placeholder-shown)]:-top-5 peer-[:not(:placeholder-shown)]:text-sm peer-[:not(:placeholder-shown)]:text-gray-600">
+                                            Mật khẩu
+                                        </label>
+                                        <a href="#" className="absolute right-0 top-3 text-sm text-gray-600 hover:underline">Quên mật khẩu?</a>
+                                    </div>
+
+                                    {error && (
+                                        <div className="p-3 bg-red-50 border-l-4 border-red-500 text-sm text-red-600">
+                                            {error}
+                                        </div>
+                                    )}
+
+                                    <button
+                                        onClick={handleLogin}
+                                        className="w-full py-3.5 bg-blue-600 text-white font-medium rounded hover:bg-blue-700 transition-colors"
+                                    >
+                                        Đăng nhập
+                                    </button>
+
+                                    {/* Demo Accounts */}
+                                    <div className="pt-6 border-t border-gray-200">
+                                        <p className="text-center text-sm text-gray-600 mb-4">💡 Tài khoản demo để test:</p>
+                                        <div className="space-y-3">
+                                            <div className="bg-blue-50 border border-blue-200 rounded-lg p-3">
+                                                <div className="text-xs text-gray-600 mb-1">Quản trị viên</div>
+                                                <div className="font-mono text-sm"><strong>admin</strong> / 123456</div>
+                                            </div>
+                                            <div className="bg-green-50 border border-green-200 rounded-lg p-3">
+                                                <div className="text-xs text-gray-600 mb-1">Nhân viên</div>
+                                                <div className="font-mono text-sm"><strong>nhanvien</strong> / 123456</div>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
-
-                                {error && (
-                                    <div className="mb-4 p-3 bg-red-50 border border-red-200 rounded-lg">
-                                        <p className="text-sm text-red-600">{error}</p>
-                                    </div>
-                                )}
-
-                                <button
-                                    onClick={handleLogin}
-                                    className="w-full py-3 bg-indigo-600 text-white font-semibold rounded-lg hover:bg-indigo-700 transition-colors shadow-md hover:shadow-lg"
-                                >
-                                    Đăng nhập
-                                </button>
                             </div>
 
-                            <div className="mt-6 pt-6 border-t border-gray-200">
-                                <p className="text-sm text-gray-600 text-center mb-3">
-                                    <strong>Tài khoản demo để test:</strong>
-                                </p>
-                                <div className="space-y-2 text-sm text-gray-700">
-                                    <div className="bg-gray-50 p-3 rounded">
-                                        <p><strong>Admin:</strong> admin / 123456</p>
-                                    </div>
-                                    <div className="bg-gray-50 p-3 rounded">
-                                        <p><strong>Nhân viên:</strong> nhanvien / 123456</p>
-                                    </div>
-                                </div>
+                            {/* Footer */}
+                            <div className="mt-16 text-center text-xs text-gray-500">
+                                <a href="#" className="hover:underline">Điều khoản sử dụng</a>
+                                <span className="mx-2">•</span>
+                                <a href="#" className="hover:underline">Chính sách bảo mật</a>
                             </div>
                         </div>
-
-                        <p className="text-center text-sm text-gray-600 mt-6">
-                            Phiên bản 1.0 - Chức năng đăng nhập cơ bản
-                        </p>
                     </div>
                 </div>
             );
